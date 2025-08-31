@@ -1,4 +1,4 @@
-/* Global Styles */
+/* 🌍 GLOBAL STYLES */
 html, body, #root {
   height: 100%;                 
   margin: 0;
@@ -24,7 +24,7 @@ html, body, #root {
   display: flex;
   justify-content: space-between;  
   align-items: center;
-  padding: 12px 12px;
+  padding: 12px 16px;
   font-size: 15px;
   font-weight: 500;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
@@ -32,10 +32,9 @@ html, body, #root {
 }
 
 .navbar-brand a {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  color: #d97706;
-  padding-left: 8px;                /* Warm orange accent */
+  color: #d97706;                /* warm orange accent */
   text-decoration: none;
 }
 
@@ -59,7 +58,7 @@ html, body, #root {
   padding: 6px 14px;
   border: none;
   border-radius: 6px;
-  background: #ef4444;           /* Red button */
+  background: #ef4444;           /* red button */
   color: #fff;
   cursor: pointer;
   font-size: 14px;
@@ -74,15 +73,16 @@ html, body, #root {
 /* === MAIN CONTAINER === */
 .container {
   flex: 1;                       
-  max-width: 950px;             
+  max-width: 950px;             /* ✅ wider but still readable */
+  width: 90%;
   margin: 30px auto;
-  padding: 20px;
+  padding: 24px;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* Headings */
+/* === HEADINGS === */
 h2 {
   margin-bottom: 20px;
   color: #222;
@@ -121,8 +121,9 @@ button:hover {
 .post {
   padding: 20px;
   border: 1px solid #e0e0e0;
+  max-width: 700px;              /* ✅ wider than before */
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin: 20px auto;
   background: #fafafa;
   transition: transform 0.2s;
 }
@@ -192,16 +193,20 @@ footer {
   }
 
   .navbar-links {
-    flex-wrap: wrap;
-    gap: 12px;
+    flex-direction: column;       /* ✅ stack neatly */
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
   }
 
   .container {
-    width: 90%;                  
+    width: 95%;                  
     padding: 15px;
   }
 
   .post {
+    max-width: 100%;              /* ✅ full width on small screens */
     padding: 15px;
   }
 
