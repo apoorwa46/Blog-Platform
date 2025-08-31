@@ -15,7 +15,7 @@
 
 import axios from "axios";
 
-const API = axios.create({ baseURL:"http://localhost:5000/api" || "https://blog-platform-jy0d.onrender.com/api" ||  "http://localhost:10000/api" });
+const API = axios.create({ baseURL:"https://blog-platform-jy0d.onrender.com/api" || "http://localhost:5000/api"  ||  "http://localhost:10000/api" });
 
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
