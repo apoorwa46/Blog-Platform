@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <div className="container">
-      <h2>All Posts for you......</h2>
+      <h2>All Posts for You......</h2>
       {posts.map((post) => (
         <div className="post" key={post._id}>
           <h3>

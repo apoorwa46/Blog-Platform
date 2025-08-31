@@ -7,7 +7,7 @@ html, body, #root {
   font-family: "Segoe UI", Roboto, sans-serif;
   background: #f8f9fa;
   color: #333;
-  background-image: url("https://images.unsplash.com/photo-1432821596592-e2c18b78144f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxvZyUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D"); 
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/023/339/353/small/minimalistic-fluid-blurred-gradient-background-trendy-neon-backdrop-for-poster-brochure-banner-landing-page-and-night-club-vector.jpg"); 
   background-size: cover;        
   background-position: center;   
   background-repeat: no-repeat;  
@@ -19,7 +19,7 @@ html, body, #root {
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background: linear-gradient(90deg, rgb(222, 80, 222) 0%, rgb(31, 28, 212) 100%);
   color: #0a0a0a;
   display: flex;
   justify-content: space-between;  
@@ -27,27 +27,38 @@ html, body, #root {
   padding: 12px 16px;
   font-size: 15px;
   font-weight: 500;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 2px 6px rgba(11, 1, 1, 0.1); 
   z-index: 1000;
 }
 
 .navbar-brand a {
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bold;
-  color: #d97706;                /* warm orange accent */
+  color: #f2efed;                
   text-decoration: none;
+  text-shadow: 2px 2px 2px rgb(65, 33, 225);
+  display: inline-block;  
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
+
+.navbar-brand a:hover {
+  transform: scale(1.05); 
+  color: #eae6d9;       
+  text-shadow: 0 0 8px rgba(242, 241, 239, 0.8);
+}
+
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 18px; 
+  gap: 12px; 
 }
 
 .navbar-links a {
-  color: #333;
+  color: #f4f2f2;
   text-decoration: none;
   transition: color 0.3s;
+  padding-right: 20px;
 }
 
 .navbar-links a:hover {
@@ -73,19 +84,19 @@ html, body, #root {
 /* === MAIN CONTAINER === */
 .container {
   flex: 1;                       
-  max-width: 950px;             /* ✅ wider but still readable */
+  max-width: 950px;             
   width: 90%;
   margin: 30px auto;
   padding: 24px;
-  background: #ffffff;
+  background: linear-gradient(90deg, #4355e3, #ed32ce);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.05);
 }
 
 /* === HEADINGS === */
 h2 {
   margin-bottom: 20px;
-  color: #222;
+  color: white;
 }
 
 /* === FORMS === */
@@ -120,35 +131,55 @@ button:hover {
 /* === POST CARD === */
 .post {
   padding: 20px;
-  border: 1px solid #e0e0e0;
-  max-width: 700px;              /* ✅ wider than before */
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 700px;
+  border-radius: 14px;
   margin: 20px auto;
-  background: #fafafa;
-  transition: transform 0.2s;
+  background: linear-gradient(135deg, rgba(72,41,206,0.9), rgba(245,76,239,0.85));
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .post:hover {
-  transform: translateY(-2px);   
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* Post Title */
 .post h3 {
-  margin: 0 0 8px 0;
-  color: #007bff;               
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
+.post h3 a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.post h3 a:hover {
+  color: #ffdd57;
+  text-shadow: 0 0 6px rgba(255,221,87,0.7);
+}
+
+/* Author */
 .post p {
   margin: 0;
-  color: #666;
-  font-size: 14px;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+  font-style: italic;
+  opacity: 0.85;
 }
+
 
 /* === FOOTER === */
 footer {
   position: relative;            
   bottom: 0;
   width: 100%;
-  background: #ffffff;          
+  background: linear-gradient(90deg, rgb(219, 73, 219) 0%, rgb(33, 28, 190) 100%);          
   color: #0a0a0a;               
   text-align: center;
   padding: 16px 0;
@@ -193,7 +224,6 @@ footer {
   }
 
   .navbar-links {
-    flex-direction: column;       /* ✅ stack neatly */
     align-items: flex-start;
     width: 100%;
     margin-top: 10px;
@@ -201,13 +231,12 @@ footer {
   }
 
   .container {
-    width: 95%;                  
+    width: 80%;                  
     padding: 15px;
   }
 
   .post {
-    max-width: 100%;              /* ✅ full width on small screens */
-    padding: 15px;
+    max-width: 100%;           
   }
 
   .footer-icons {

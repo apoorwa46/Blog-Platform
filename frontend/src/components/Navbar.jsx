@@ -13,12 +13,10 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      {/* Brand / Logo */}
       <div className="navbar-brand">
         <Link to="/">BlogForYou</Link>
       </div>
 
-      {/* Links */}
       <div className="navbar-links">
         {token ? (
           <>
@@ -41,3 +39,7 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
+
+
