@@ -19,11 +19,12 @@ return(
         <div>
         {token ? (
           <>
+            <Link to={'/'}>Home</Link>
             <Link to="/create">Create Post</Link>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
-          <>
+          <><Link to={'/'}>Home</Link>
             <Link to="/login">Login</Link>
             <Link to="/signup">Signup</Link>
           </>

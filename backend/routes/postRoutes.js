@@ -1,6 +1,7 @@
 const express = require("express");
 const Post = require("../models/Post");
 const authMiddleware = require("../middleware/authMiddleware");
+const mongoose = require("mongoose");
 
 const router = express.Router();
 
@@ -28,9 +29,9 @@ router.get("/:id", async (req, res) => {
 });
 
 // Update post
-router.put("/:id", authMiddleware, async(req,res)=>{
+router.put("/:id",  async(req,res)=>{
     const post = await Post.findById(req.params.id);
-    if (post.author.toString() !== req.userId) return res.status(403).json({ message: "Not allowed" });
+    if (!post) return res.status(404).json({ message: "Post not found" });
     post.title = req.body.title || post.title;
     post.content = req.body.content || post.content;
 
@@ -40,11 +41,26 @@ router.put("/:id", authMiddleware, async(req,res)=>{
 
 // Delete post
 router.delete("/:id", authMiddleware, async (req, res) => {
-  const post = await Post.findById(req.params.id);
-  if (post.author.toString() !== req.userId) return res.status(403).json({ message: "Not allowed" });
+  try {
+    // Validate MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: "Invalid post ID" });
+    }
 
-  await post.remove();
-  res.json({ message: "Post deleted" });
+    // Find post
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    // Delete safely
+    await post.deleteOne(); // ✅ safe in Mongoose 6/7
+
+    return res.json({ message: "Post deleted successfully" });
+  } catch (err) {
+    console.error("Delete error:", err);  // 👈 this will show in Render logs
+    return res.status(500).json({ error: err.message || "Server error while deleting post" });
+  }
 });
 
 module.exports = router;
