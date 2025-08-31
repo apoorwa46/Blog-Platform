@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/create" element={<CreatePost />} />
         <Route path="/post/:id" element={<PostDetail />} />
       </Routes>
+      <Footer />
     </>
   );
 }

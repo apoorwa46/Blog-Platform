@@ -10,7 +10,6 @@ function PostDetail() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    // check if user is logged in
     const token = localStorage.getItem("token");
     if (token) setLoggedIn(true);
 
@@ -39,9 +38,12 @@ function PostDetail() {
     <div className="container">
       <h2>{post.title}</h2>
       <p><strong>By:</strong> {post.author.username}</p>
+      <p>
+        <strong>Created:</strong>{" "}
+        {new Date(post.createdAt).toLocaleString()} 
+      </p>
       <p>{post.content}</p>
 
-      {/* Edit/Delete buttons if user is logged in */}
       {loggedIn && (
         <div style={{ marginTop: "20px" }}>
           <Link to={`/post/${post._id}/edit`} className="btn">Edit</Link>
